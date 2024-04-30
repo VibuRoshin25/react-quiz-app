@@ -40,13 +40,13 @@ const Question = ({ index, onSelectAnswer, onSkipAnswer }) => {
       <QuestionTimer
         key={timer}
         timeout={timer}
-        onTimeout={onSkipAnswer}
+        onTimeout={answer.selectedAnswer === "" ? onSkipAnswer : null}
         mode={answerState}
       />
       <h2>{QUESTIONS[index].text}</h2>
       <Answers
         answers={QUESTIONS[index].answers}
-        selectedAnswer={answer.selectedAnswer === "" ? onSkipAnswer : null}
+        selectedAnswer={answer.selectedAnswer}
         answerState={answerState}
         onSelect={handleSelectAnswer}
       />

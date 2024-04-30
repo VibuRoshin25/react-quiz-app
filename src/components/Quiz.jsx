@@ -7,7 +7,7 @@ const Quiz = () => {
   const [userAnswers, setUserAnswers] = useState([]);
 
   const activeQuestionIndex = userAnswers.length;
-  const quizIsComplete = userAnswers.length === QUESTIONS.length;
+  const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
 
   const handleSelectAnswer = useCallback((selectedAnswer) => {
     setUserAnswers((prevUserAnswers) => {
@@ -19,6 +19,7 @@ const Quiz = () => {
     () => handleSelectAnswer(null),
     [handleSelectAnswer]
   );
+
   if (quizIsComplete) {
     return <Summary userAnswers={userAnswers} />;
   }

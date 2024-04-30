@@ -22,8 +22,8 @@ const QuestionTimer = ({ timeout, onTimeout, mode }) => {
   return (
     <progress
       id="question-time"
-      value={remainingTime}
       max={timeout}
+      value={remainingTime}
       className={mode}
     />
   );
